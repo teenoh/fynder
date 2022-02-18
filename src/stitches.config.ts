@@ -34,13 +34,30 @@ export const {
   media,
   theme: {
     fonts: {
-      system: "system-ui",
+      display: "Georgia, serif",
+      copy: "Helvetica, serif",
+    },
+    fontWeights: {
+      light: "300",
+      regular: "400",
+      medium: "500",
+      semibold: "600",
+      bold: "700",
     },
     colors: {
       hiContrast: "hsl(206,10%,5%)",
       loContrast: "white",
       black: "rgba(19, 19, 21, 1)",
       white: "rgba(255, 255, 255, 1)",
+      teal: "#33DBDB",
+      blue: "#1B3889", //@todo think of a better name
+      darkBlue: "#112467",
+
+      pigeon200: "#EFEFEF",
+      pigeon300: "#C4C4C4",
+      pigeon400: "#808080",
+      pigeon500: "#666666",
+      pigeon700: "#333333",
     },
     fontSizes: {
       1: "13px",
@@ -92,3 +109,6 @@ export const {
   },
 });
 
+export type CSS = Stitches.CSS<typeof config>;
+
+export type { VariantProps } from "@stitches/react";
