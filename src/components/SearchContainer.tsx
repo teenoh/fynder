@@ -11,6 +11,13 @@ export const SearchContainer = () => {
   const { results, filterResults, reset, loadMore, loading } = usePeople();
   const lastItemRef = useRef<HTMLDivElement>(null); // used to track if the bottom of the page has been reached
   const debouncedQuery = useDebounce(query, 150);
+  const inputRef = useRef<HTMLInputElement>(null);
+
+  useEffect(() => {
+    if (inputRef.current) {
+      inputRef.current.focus();
+    }
+  }, []);
 
   useEffect(() => {
     if (debouncedQuery) {
@@ -53,12 +60,17 @@ export const SearchContainer = () => {
         css={{
           mb: 30,
           position: "sticky",
-          top: 40,
+          top: 70,
           py: 30,
           backgroundColor: "$white",
+
+          "@bp2": {
+            top: 40,
+          },
         }}
       >
         <SearchInput
+          ref={inputRef}
           onChange={handleInputChange}
           value={query}
           onClear={clearQuery}

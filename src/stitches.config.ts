@@ -43,6 +43,7 @@ export const {
       black: "rgba(19, 19, 21, 1)",
       white: "rgba(255, 255, 255, 1)",
       teal: "#33DBDB",
+      lightBlue: "#6983DC",
       blue: "#1B3889",
       darkBlue: "#112467",
 
@@ -100,7 +101,6 @@ export const {
 export type CSS = Stitches.CSS<typeof config>;
 
 export type { VariantProps } from "@stitches/react";
-
 
 export const globalStyles = globalCss({
   html: {

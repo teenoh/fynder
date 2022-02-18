@@ -1,4 +1,4 @@
-import { VFC } from "react";
+import { VFC, forwardRef } from "react";
 import { Box } from "./Box";
 import { SearchIcon } from "./Icons";
 import { InputHTMLAttributes } from "react";
@@ -7,11 +7,10 @@ type SearchInputProps = InputHTMLAttributes<HTMLInputElement> & {
   onClear: () => void;
 };
 
-export const SearchInput: VFC<SearchInputProps> = ({
-  value,
-  onClear,
-  ...inputProps
-}) => {
+export const SearchInput: VFC<SearchInputProps> = forwardRef<
+  HTMLInputElement,
+  SearchInputProps
+>(({ value, onClear, ...inputProps }, ref) => {
   return (
     <Box
       as="div"
@@ -23,7 +22,7 @@ export const SearchInput: VFC<SearchInputProps> = ({
         height: 40,
 
         "&:focus-within": {
-          outline: `3px solid #6983DC`,
+          outline: `3px solid $lightBlue`,
           outlineOffset: 3,
         },
       }}
@@ -44,6 +43,7 @@ export const SearchInput: VFC<SearchInputProps> = ({
       </Box>
       <Box
         as="input"
+        ref={ref}
         css={{
           flex: 1,
           width: "100%",
@@ -83,7 +83,7 @@ export const SearchInput: VFC<SearchInputProps> = ({
           fontSize: "inherit",
 
           "&:focus": {
-            outline: `1px solid #6983DC`,
+            outline: `1px solid $lightBlue`,
           },
 
           ...(!value && {
@@ -96,4 +96,6 @@ export const SearchInput: VFC<SearchInputProps> = ({
       </Box>
     </Box>
   );
-};
+});
+
+SearchInput.displayName = "SearchInput";
