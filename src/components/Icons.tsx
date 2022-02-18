@@ -6,8 +6,6 @@ type IconProps = {
   css?: CSS;
 };
 
-// @todo fix typing
-
 export const SearchIcon: VFC<IconProps> = (props) => {
   return (
     <Box

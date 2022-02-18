@@ -5,12 +5,13 @@ import { InputHTMLAttributes } from "react";
 
 type SearchInputProps = InputHTMLAttributes<HTMLInputElement> & {
   onClear: () => void;
+  ref: React.Ref<HTMLInputElement>;
 };
 
 export const SearchInput: VFC<SearchInputProps> = forwardRef<
   HTMLInputElement,
   SearchInputProps
->(({ value, onClear, ...inputProps }, ref) => {
+>(({ value, onClear, onChange }, ref) => {
   return (
     <Box
       as="div"
@@ -56,9 +57,13 @@ export const SearchInput: VFC<SearchInputProps> = forwardRef<
           lineHeight: "150%",
           letterSpacing: "-0.0015em",
           color: "$pigeon700",
+
+          "&:focus": {
+            outline: "none",
+          },
         }}
         placeholder="Search in Air HQ"
-        {...inputProps}
+        onChange={onChange}
       />
 
       <Box
@@ -81,6 +86,7 @@ export const SearchInput: VFC<SearchInputProps> = forwardRef<
           borderTopRightRadius: 4,
           borderBottomRightRadius: 4,
           fontSize: "inherit",
+          cursor: "pointer",
 
           "&:focus": {
             outline: `1px solid $lightBlue`,

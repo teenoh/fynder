@@ -30,12 +30,17 @@ export const SearchContainer = () => {
   useEffect(() => {
     if (!lastItemRef.current) return;
     // Logic to handle infinite scrolling
-    const observer = new IntersectionObserver((entries) => {
-      const { isIntersecting } = entries[0];
-      if (isIntersecting) {
-        loadMore();
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const { isIntersecting } = entries[0];
+        if (isIntersecting) {
+          loadMore();
+        }
+      },
+      {
+        rootMargin: "0px 0px 200px 0px",
       }
-    });
+    );
 
     observer.observe(lastItemRef.current);
 
