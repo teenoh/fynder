@@ -1,18 +1,23 @@
 import { Box } from "./Box";
+import { Text } from "./Text";
 import { VFC } from "react";
 import { UserCard } from "./UserCard";
+import { Person } from "../types";
 
-type SearchResultsProps = {};
+type SearchResultsProps = {
+  results: Person[];
+};
 
-export const SearchResults: VFC<SearchResultsProps> = () => {
+export const SearchResults: VFC<SearchResultsProps> = ({ results }) => {
   return (
     <Box>
-      {[1, 2, 23, 34, 45, 48, 5].map((id) => (
+      {results.length == 0 && <Text>No results found</Text>}
+      {results.map(({ id, name, avatar, description }) => (
         <UserCard
           key={id}
-          name="Francois Wigget"
-          avatar="https://robohash.org/enimidodit.png?size=200x200&set=set1"
-          description="Unspecified focal traumatic brain injury without loss of consciousness"
+          name={name}
+          avatar={avatar}
+          description={description}
         />
       ))}
     </Box>

@@ -82,6 +82,10 @@ export const SearchInput: VFC<SearchInputProps> = ({
           borderBottomRightRadius: 4,
           fontSize: "inherit",
 
+          "&:focus": {
+            outline: `1px solid #6983DC`,
+          },
+
           ...(!value && {
             pointerEvents: "none",
             visibility: "hidden",

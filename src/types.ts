@@ -1,6 +1,7 @@
 export type Person = {
-  id: string;
+  id: number;
   name: string;
   email: string;
   description: string;
+  avatar: string;
 };

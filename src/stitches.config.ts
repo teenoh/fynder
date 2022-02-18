@@ -2,6 +2,7 @@ import { createStitches } from "@stitches/react";
 import type * as Stitches from "@stitches/react";
 
 const SCREEN_SIZES = {
+  xs: 0,
   sm: 375,
   md: 768,
   lg: 1040,
@@ -9,17 +10,11 @@ const SCREEN_SIZES = {
 };
 
 export const media = {
-  bp1: `(min-width: ${SCREEN_SIZES.md}px)`,
-  bp2: `(min-width: ${SCREEN_SIZES.lg}px)`,
-  bp3: `(min-width: ${SCREEN_SIZES.xl}px)`,
+  bp1: `(min-width: ${SCREEN_SIZES.xs}px)`,
+  bp2: `(min-width: ${SCREEN_SIZES.md}px)`,
+  bp3: `(min-width: ${SCREEN_SIZES.lg}px)`,
+  bp4: `(min-width: ${SCREEN_SIZES.xl}px)`,
 };
-
-// media: {
-//   xs: "(min-width: 0px)",
-//   sm: "(min-width: 600px)",
-//   md: "(min-width: 900px)",
-//   lg: "(min-width: 1200px)",
-// }
 
 export const {
   styled,
@@ -45,12 +40,10 @@ export const {
       bold: "700",
     },
     colors: {
-      hiContrast: "hsl(206,10%,5%)",
-      loContrast: "white",
       black: "rgba(19, 19, 21, 1)",
       white: "rgba(255, 255, 255, 1)",
       teal: "#33DBDB",
-      blue: "#1B3889", //@todo think of a better name
+      blue: "#1B3889",
       darkBlue: "#112467",
 
       pigeon200: "#EFEFEF",
@@ -58,11 +51,6 @@ export const {
       pigeon400: "#808080",
       pigeon500: "#666666",
       pigeon700: "#333333",
-    },
-    fontSizes: {
-      1: "13px",
-      2: "15px",
-      3: "17px",
     },
   },
   utils: {
@@ -112,3 +100,24 @@ export const {
 export type CSS = Stitches.CSS<typeof config>;
 
 export type { VariantProps } from "@stitches/react";
+
+
+export const globalStyles = globalCss({
+  html: {
+    height: "100%",
+  },
+
+  body: {
+    height: "100%",
+  },
+
+  "#__next": {
+    height: "100%",
+  },
+
+  "*": {
+    margin: 0,
+    padding: 0,
+    boxSizing: "border-box",
+  },
+});

@@ -11,6 +11,10 @@ export type TextProps = ComponentProps<typeof Text> &
 export const Text = styled("p", {
   fontFamily: "$copy",
   color: "$pigeon500",
+  margin: 0,
+  padding: 0,
+  boxSizing: "border-box",
+  
   variants: {
     variant: {
       heading1: {
@@ -30,7 +34,13 @@ export const Text = styled("p", {
         lineHeight: "150%",
         letterSpacing: "-0.0015em",
       },
-      color: {},
+      smallCopy: {
+        fontFamily: "$copy",
+        fontSize: 14,
+        fontWeight: "$regular",
+        lineHeight: "150%",
+        letterSpacing: "-0.0015em",
+      },
     },
   },
   defaultVariants: {

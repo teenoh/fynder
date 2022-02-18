@@ -5,15 +5,16 @@ export const Header = ({}) => {
     <Box
       as="header"
       css={{
-        mb: 27,
+        position: "fixed",
+        top: 0,
+        left: 0,
+        right: 0,
+        width: "100%",
+        backgroundColor: "$white",
       }}
     >
       <Box
         css={{
-          position: "fixed",
-          top: 0,
-          left: 0,
-          right: 0,
           height: 4,
           backgroundColor: "$teal",
         }}
@@ -21,11 +22,11 @@ export const Header = ({}) => {
       <Box
         css={{
           maxWidth: 1054,
+          padding: "33px 24px",
           mx: "auto",
-          py: 33,
         }}
       >
-        <Box as="a">
+        <Box as="a" href="https://air.inc">
           <Box
             as="img"
             src="/logo.svg"
