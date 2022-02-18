@@ -12,14 +12,18 @@ export const SearchResults: VFC<SearchResultsProps> = ({ results }) => {
   return (
     <Box>
       {results.length == 0 && <Text>No results found</Text>}
-      {results.map(({ id, name, avatar, description }) => (
-        <UserCard
-          key={id}
-          name={name}
-          avatar={avatar}
-          description={description}
-        />
-      ))}
+      <Box
+        as="ul"
+        css={{
+          listStyleType: "none",
+        }}
+      >
+        {results.map(({ id, name, avatar, description }) => (
+          <Box key={id} as="li">
+            <UserCard name={name} avatar={avatar} description={description} />
+          </Box>
+        ))}
+      </Box>
     </Box>
   );
 };

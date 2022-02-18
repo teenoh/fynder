@@ -37,7 +37,7 @@ export const SearchContainer = () => {
         observer.unobserve(lastItemRef.current);
       }
     };
-  }, []);
+  }, [loadMore]);
 
   const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
     setQuery(e.target.value);
