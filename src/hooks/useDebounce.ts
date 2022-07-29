@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 
+// add a delay of 500ms or any other delay number if passed before searching whenever the input field changes
 function useDebounce<T>(value: T, delay?: number): T {
   const [debouncedValue, setDebouncedValue] = useState<T>(value);
 

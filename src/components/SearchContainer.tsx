@@ -57,6 +57,11 @@ export const SearchContainer = () => {
 
   const clearQuery = useCallback(() => {
     setQuery("");
+    // clear the input after clicking the input cancel button
+    if (inputRef.current) {
+      inputRef.current.value = "";
+      inputRef.current.focus();
+    }
   }, []);
 
   return (
