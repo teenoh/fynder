@@ -19,6 +19,7 @@ export const usePeople = (): Result => {
   const [page, setPage] = useState(1);
   const [loading, setLoading] = useState(false);
 
+  //check to see if there are still data to display
   const hasNext = useMemo(
     () => results.length > results.slice(0, page * PAGE_COUNT).length,
     [results, page]
@@ -33,8 +34,11 @@ export const usePeople = (): Result => {
   const filterResults = useCallback(
     (query: string) => {
       setLoading(true);
-      const newResults = results.filter(({ name }) =>
-        name?.toLowerCase().includes(query.toLowerCase())
+      // searching the data over and over again to get all the searched value
+      const newResults = data.filter(
+        ({ name, description }) =>
+          name?.toLowerCase().includes(query.toLowerCase()) ||
+          description?.toLowerCase().includes(query.toLowerCase())
       );
       setLoading(false);
       setResults(newResults);
